@@ -57,7 +57,7 @@ export const api = {
     ]);
   },
 
-  async createInvoice(initData: string, packageId: number): Promise<{ paymentUrl: string }> {
+  async createInvoice(_initData: string, _packageId: number): Promise<{ paymentUrl: string }> {
     return Promise.resolve({
       paymentUrl: 'https://example.com/payment/mock-success',
     });
