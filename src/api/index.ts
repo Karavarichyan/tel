@@ -31,21 +31,22 @@ export const api = {
   },
 
   async getCategoryImages(categoryId: number): Promise<ImageItem[]> {
-    if (categoryId === 1) {
-      return Promise.resolve([
-        { id: 101, url: '/models/image1.jpg' },
-        { id: 102, url: '/models/image2.jpg' },
-        { id: 103, url: '/models/image3.jpg' },
-        { id: 104, url: '/models/image4.jpg' },
-      ]);
+    switch (categoryId) {
+      case 1:
+        return Promise.resolve([
+          { id: 101, url: '/models/image1.jpg' },
+          { id: 102, url: '/models/image2.jpg' },
+          { id: 103, url: '/models/image3.jpg' },
+          { id: 104, url: '/models/image4.jpg' },
+        ]);
+      case 2:
+        return Promise.resolve([
+          { id: 201, url: '/za_rulem/image1.jpg' },
+          { id: 202, url: '/za_rulem/image2.jpg' },
+        ]);
+      default:
+        return Promise.resolve([]);
     }
-    if (categoryId === 2) {
-      return Promise.resolve([
-        { id: 201, url: '/za_rulem/image1.jpg' },
-        { id: 202, url: '/za_rulem/image2.jpg' },
-      ]);
-    }
-    return Promise.resolve([]);
   },
 
   async getPackages(): Promise<Package[]> {
